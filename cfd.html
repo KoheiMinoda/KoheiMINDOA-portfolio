@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFD — Kohei MINODA</title>
+  <meta name="description" content="CFD blog — hydrodynamics of heave plates for floating offshore wind turbines.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-name" href="index.html">Kohei MINODA</a>
+      <div class="nav-links">
+        <a href="index.html">About</a>
+        <a href="cfd.html" aria-current="page">CFD</a>
+        <a href="electronics.html">Electronics</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>CFD</h1>
+    <p class="page-intro">Notes and results on the hydrodynamics of heave plates for FOWTs.</p>
+
+    <div id="grid" class="post-grid"></div>
+    <p id="status" class="grid-status">Loading…</p>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Kohei MINODA · <a href="index.html">Home</a></div>
+  </footer>
+
+  <script src="blog.js"></script>
+  <script>
+    renderIndex("cfd");
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
