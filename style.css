@@ -1,0 +1,208 @@
+/* ===========================================================
+   Kohei MINODA — portfolio shared stylesheet
+   3ページ（index / cfd / electronics）で共通利用
+   =========================================================== */
+
+:root {
+  --bg:        #fafaf8;
+  --surface:   #ffffff;
+  --text:      #1a1c1e;
+  --muted:     #5c6469;
+  --border:    #e3e2dd;
+  --accent:    #0e6e82;   /* ocean teal — 研究テーマに合わせた差し色 */
+  --accent-dim:#0e6e8218;
+  --maxw:      820px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:      #14171a;
+    --surface: #1c2024;
+    --text:    #e7e9ea;
+    --muted:   #9aa2a8;
+    --border:  #2c3237;
+    --accent:  #4fb8cf;
+    --accent-dim:#4fb8cf22;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:      #14171a;
+  --surface: #1c2024;
+  --text:    #e7e9ea;
+  --muted:   #9aa2a8;
+  --border:  #2c3237;
+  --accent:  #4fb8cf;
+  --accent-dim:#4fb8cf22;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
+               "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- ナビゲーション ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nav-name {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- 見出し・本文 ---------- */
+main { padding: 48px 0 72px; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+h1 .sub { color: var(--muted); font-weight: 400; font-size: 1.1rem; }
+
+h2 {
+  font-size: 1.3rem;
+  margin: 56px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+h3 { font-size: 1.05rem; margin: 0 0 6px; }
+
+.lead { font-size: 1.08rem; color: var(--text); }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+
+/* ---------- ヒーロー（トップ） ---------- */
+.hero { margin-bottom: 8px; }
+.hero .role { color: var(--accent); font-weight: 500; margin: 8px 0 0; }
+.tagline { color: var(--muted); margin-top: 4px; }
+
+/* ---------- タグ（スキル等） ---------- */
+.tags { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li {
+  font-size: 0.82rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+
+/* ---------- 経歴タイムライン ---------- */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  position: relative;
+  padding: 0 0 22px 22px;
+  border-left: 2px solid var(--border);
+}
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline .year { font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline .place { font-weight: 600; }
+
+/* ---------- プロジェクトカード ---------- */
+.cards { display: grid; gap: 20px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+.card .media { background: #000; line-height: 0; }
+.card .media img, .card .media video { width: 100%; height: auto; display: block; }
+.card .body { padding: 16px 18px 18px; }
+.card .body p { margin: 6px 0 0; color: var(--muted); font-size: 0.92rem; }
+.card .method {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* 中身がまだ無い枠（プレースホルダ） */
+.card.placeholder {
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px;
+}
+
+/* ---------- 図表 ---------- */
+figure { margin: 24px 0; }
+figure img, figure video { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+
+/* ---------- リンク集・フッター ---------- */
+.links { list-style: none; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; }
+.links a { text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
