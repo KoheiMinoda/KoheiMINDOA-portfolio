@@ -1,32 +1,108 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kohei MINODA</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 800px;
-           margin: 40px auto; padding: 0 20px; line-height: 1.7; }
-    h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
-    img, video { max-width: 100%; height: auto; }
-    .project { margin: 32px 0; }
-  </style>
+  <meta name="description" content="Kohei MINODA — Doctoral researcher in hydrodynamics for floating offshore wind turbines (ENSTA Paris / IP Paris).">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Kohei MINODA / 簑田康平</h1>
-  <p>Doctoral researcher (ENSTA Paris / IP Paris). </p>
-  <p>Hydrodynamics of heave plates for floating offshore wind turbines.</p>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-name" href="index.html">Kohei MINODA</a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">About</a>
+        <a href="cfd.html">CFD</a>
+        <a href="electronics.html">Electronics</a>
+      </div>
+    </div>
+  </nav>
 
-  <div class="project">
-    <h2>Vortex shedding around a heave plate</h2>
-    <img src="results/vortex.gif" alt="Vortex shedding animation">
-    <p>Code_Saturne, ALE method, k-ω SST turbulence model.</p>
-  </div>
+  <main class="container">
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://github.com/KoheiMinoda">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/kohei-minoda-b43a252b5/">LinkedIn</a></li>
-  </ul>
+    <!-- ===================== HERO ===================== -->
+    <header class="hero">
+      <h1>Kohei MINODA <span class="sub">簑田 康平</span></h1>
+      <p class="role">Doctoral researcher — Hydrodynamics of heave plates for floating offshore wind turbines</p>
+      <p class="tagline">ENSTA Paris / Institut Polytechnique de Paris · UME&nbsp;/&nbsp;IMSIA laboratory</p>
+    </header>
+
+    <!-- ===================== ABOUT ===================== -->
+    <h2>About</h2>
+    <p class="lead">
+      I am a PhD candidate studying the hydrodynamics of solid and perforated
+      heave plates for floating offshore wind turbines (FOWTs), combining CFD
+      with PIV experiments. My longer-term aim is to become a specialist in
+      computational fluid dynamics and fluid mechanics more broadly.
+    </p>
+
+    <ul class="tags">
+      <li>Code_Saturne</li>
+      <li>ALE</li>
+      <li>k-ω SST</li>
+      <li>PIV</li>
+      <li>POD / SVD</li>
+      <li>Python · PyVista</li>
+      <li>React · FastAPI</li>
+    </ul>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <h2>Experience &amp; Education</h2>
+    <ul class="timeline">
+      <li>
+        <div class="year">20XX – present</div>
+        <div class="place">PhD candidate · ENSTA Paris / IP Paris (ED 626)</div>
+        <p class="muted">
+          UME / IMSIA laboratory, supervised by Luc Pastur.
+          Hydrodynamic damping of solid and perforated heave plates for FOWTs
+          (Code_Saturne, ALE, k-ω SST) with a PIV experimental collaboration.
+          Part of the FricFloaT / E4C project with EDF R&amp;D.
+        </p>
+      </li>
+      <li>
+        <div class="year">20XX – 20XX</div>
+        <div class="place">M.Sc. / B.Sc. · Kyushu University</div>
+        <p class="muted">
+          Earth and Planetary Sciences (accelerated master's program), Fukuoka, Japan.
+        </p>
+      </li>
+    </ul>
+    <p class="muted" style="font-size:.85rem; margin-top:14px;">
+      <!-- 追加したい項目（受賞・発表・インターン等）はここに li を増やしてください -->
+      Awarded the Eiffel Excellence Scholarship (French Ministry for Europe and Foreign Affairs).
+    </p>
+
+    <!-- ===================== FEATURED ===================== -->
+    <h2>Work</h2>
+    <div class="cards">
+      <a class="card" href="cfd.html" style="text-decoration:none; color:inherit;">
+        <div class="media">
+          <img src="results/vortex.gif" alt="Vortex shedding around a heave plate">
+        </div>
+        <div class="body">
+          <h3>CFD results</h3>
+          <p>Vortex shedding, damping coefficients and flow analysis around heave plates.</p>
+        </div>
+      </a>
+      <a class="card placeholder" href="electronics.html" style="text-decoration:none;">
+        Electronics &amp; marine instrumentation →
+      </a>
+    </div>
+
+    <!-- ===================== LINKS ===================== -->
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="https://github.com/KoheiMinoda">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/kohei-minoda-b43a252b5/">LinkedIn</a></li>
+      <!-- <li><a href="mailto:you@example.com">Email</a></li> -->
+    </ul>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Kohei MINODA</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
