@@ -97,7 +97,7 @@ body {
 }
 
 /* ---------- 見出し・本文 ---------- */
-main { padding: 48px 0 72px; }
+main { padding: 128px 0 110px; }
 
 h1 {
   font-size: 2rem;
