@@ -1,4 +1,4 @@
-# KoheiMINDOA-portfolio
+# KoheiMINODA-portfolio
 
 ├─ index.html  cfd.html  electronics.html  post.html
 ├─ blog.js  style.css
